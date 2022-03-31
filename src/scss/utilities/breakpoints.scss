@@ -1,0 +1,29 @@
+// Breakpoints taken from TailwindCSS
+
+$breakpoints-up: (
+  "sm": "640px",
+  "md": "768px",
+  "lg": "1024px",
+  "xl": "1280px",
+  "xxl": "1536px",
+);
+
+$breakpoints-down: (
+  "sm": "639px",
+  "md": "767px",
+  "lg": "1023px",
+  "xl": "1279px",
+  "xxl": "1535px",
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}

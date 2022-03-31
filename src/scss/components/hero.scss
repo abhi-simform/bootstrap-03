@@ -1,0 +1,23 @@
+@use "../utilities/" as *;
+
+.hero-section {
+  background-color: #fef8f5;
+  font-family: var(--font-title);
+}
+
+.hero-title {
+  font-size: 48px;
+}
+
+.hero-img {
+  animation: moveUpDown 2s ease-in-out 0s infinite alternate;
+}
+
+@keyframes moveUpDown {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}

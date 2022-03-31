@@ -1,0 +1,67 @@
+@use "../utilities/" as *;
+
+// Based on Andy Bell's CSS reset
+// https://piccalil.li/blog/a-modern-css-reset/
+
+// Removing all margin and padding, and setting the box sizing to border-box
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Removing the list styling
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+// Setting smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Setting body defaults
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+// Setting links to have no underline and inherit color
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Setting max width for image to 100% to avoid overflow
+img,
+picture {
+  max-width: 100%;
+}
+
+// Inherit font for inputs and buttons
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// Removing animations for people who don't prefer to see them
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

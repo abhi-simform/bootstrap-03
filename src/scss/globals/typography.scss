@@ -1,0 +1,24 @@
+@use "../utilities/" as *;
+
+body {
+  font-family: var(--font-body);
+}
+
+.section-title {
+  font-size: 32px;
+  line-height: 46px;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 25px;
+  text-align: center;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #ed6b32;
+    width: 50px;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

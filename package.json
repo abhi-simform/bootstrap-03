@@ -1,0 +1,37 @@
+{
+  "name": "frontend-setup",
+  "version": "1.0.0",
+  "description": "A minimal frontend setup for a new project",
+  "author": "Abhishek Sawant",
+  "main": "public/index.html",
+  "scripts": {
+    "copy-html": "copyfiles -u 1 src/*.html public/",
+    "watch-html": "onchange src/*.html -- npm run copy-html",
+    "copy-assets": "copyfiles -u 1 src/assets public/assets",
+    "watch-assets": "onchange src/assets -- npm run copy-assets",
+    "compile-sass": "sass --no-source-map src/scss/style.scss:public/dist/css/style.css",
+    "watch-sass": "onchange src/scss/ -- npm run compile-sass",
+    "complile-js": "terser src/js/script.js --compress --mangle --output public/dist/js/script.js",
+    "watch-js": "onchange src/js/script.js -- npm run complile-js",
+    "post-prefix": "postcss public/dist/css/style.css -u autoprefixer -r --no-map",
+    "post-nano": "postcss public/dist/css/style.css -u cssnano -r --no-map",
+    "copy": "npm-run-all --parallel compile-* copy-*",
+    "watch": "npm-run-all --parallel watch-*",
+    "post": "postcss public/dist/css/style.css -u autoprefixer -u cssnano -r --no-map",
+    "serve": "browser-sync start --server public --files public",
+    "start": "npm-run-all copy --parallel watch serve",
+    "build": "npm-run-all copy post"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.4",
+    "bootstrap": "^5.1.3",
+    "browser-sync": "^2.27.9",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^5.1.4",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.49.9",
+    "terser": "^5.12.1"
+  }
+}

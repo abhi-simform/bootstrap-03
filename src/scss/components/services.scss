@@ -1,0 +1,25 @@
+@use "../utilities/" as *;
+
+.services-card {
+  position: relative;
+  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
+  border-radius: 20px;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: -10%;
+    left: 0;
+    height: 5px;
+    background-color: #ed6b32;
+    transition: bottom 250ms ease-in-out;
+  }
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+    &::after {
+      bottom: 0;
+    }
+  }
+}
